@@ -47,7 +47,7 @@
 
 OpenAMR\_UI's functionality relies on a robust architecture composed of interconnected ROS nodes, standard packages, and communication libraries. Let's delve deeper into each of these components
 
-![Architecture](/home/ubuntu/ws_ui/src/images/arch.png "Architecture")
+![Architecture](images/arch.png "Architecture")
 
 **Core Nodes:**
 
@@ -102,7 +102,7 @@ Our package uses next external packages:
 
 ### **Map page**
 
-![Architecture](/home/ubuntu/ws_ui/src/images/map.png "Architecture")
+![Architecture](images/map.png "Map")
 
 The Map page serves as your central hub for visualizing and managing your robot's operational environment. Here's a breakdown of what you can expect:
 
@@ -148,7 +148,7 @@ When you move the joystick, UINode sends the **geometry\_msgs/Twis** message to 
 
 ### **Route page**
 
-![Architecture](/home/ubuntu/ws_ui/src/images/route.png "Architecture")
+![Architecture](images/route.png "Route")
 
 The Route page empowers you to define specific paths for your robot to navigate within the maps you've created. Here's how it helps you chart your AMR's course:
 
@@ -179,7 +179,7 @@ When you click on the buttons, UINode sends the **std\_msgs/String** message to 
 
 ### **Control page**
 
-![Architecture](/home/ubuntu/ws_ui/src/images/control.png "Architecture")
+![Architecture](images/control.png "Control")
 
 The Control page serves as your mission control center, allowing you to send navigation commands and guide your robot's movements. When you click on the buttons, UINode sends the **std\_msgs/String** message to the topic “**/ui\_operation**” and it will be parsed in other nodes of ui\_package/ While it doesn't provide direct, physical control like a remote control car, it empowers you to strategically direct the robot's path:
 
@@ -217,7 +217,7 @@ The Control page serves as your mission control center, allowing you to send nav
 
 ### **Info page**
 
-![Architecture](/home/ubuntu/ws_ui/src/images/info.png "Architecture")
+![Architecture](images/info.png "Info")
 
 The Info page acts as your information hub, providing a comprehensive overview of your robot's status and sensor data. Here's what you can expect:
 
@@ -296,23 +296,23 @@ Installation Steps:
 
 Install Flask (if not already installed):
 
-**pip3 install Flask**
+        pip3 install flask
 
 Clone the UI package repository:
 
 Replace link\_on\_ui\_package\_github with the actual URL of your UI package's GitHub repository. Navigate to your desired workspace directory using cd.
 
-**cd your\_workspace/src**
-
-**git clone link\_on\_ui\_package\_github**
+        cd your_workspace/src
+        
+        git clone https://github.com/openAMRobot/OpenAMR_UI_package
 
 Build the UI package (assuming it's a ROS package):
 
 Navigate to the root directory of your workspace (where the src folder is located).
 
-**cd ..**
-
-**catkin\_make**
+        cd ..
+        
+        catkin_make
 
 Executing **catkin\_make** start building your ROS packages, including the cloned UI package. This may take some time depending on the complexity of the packages.
 
@@ -320,7 +320,7 @@ Executing **catkin\_make** start building your ROS packages, including the clone
 
 Locate the config.yaml file within the UI package's param directory (assuming the typical ROS package structure). You can usually find it at:
 
-**your\_workspace/src/ui\_package/param/config.yaml**
+        your_workspace/src/ui\_package/param/config.yaml
 
 Open config.yaml using a text editor.
 
@@ -335,7 +335,7 @@ Edit the configuration parameters to match your specific needs:
 Save your changes to config.yaml.
 
 
-![Architecture](/home/ubuntu/ws_ui/src/images/config.png "Architecture")
+![Architecture](images/config.png "Config")
 
 **Future development**
 ----------------------
