@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <!--Desinfection handler -->
+    <node pkg="ui_package" name="way_points_handler" type="way_points_handler.py" output="screen" />
+</launch>

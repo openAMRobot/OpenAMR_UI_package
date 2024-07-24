@@ -1,0 +1,8 @@
+<launch>
+  <!--Start movebase-->
+  <include file="$(find ui_package)/launch/launchesTemplate/move_base.launch"/>
+ 
+  <!--Start AMCL-->
+  <include file="$(find ui_package)/launch/launchesTemplate/amcl.launch"/> 
+  
+</launch>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch> 
+
+  <!--Flask Server -->  
+  <node pkg="ui_package" name="flask_app" type="flask_app.py" output="screen"/>
+
+  <!-- Web Camera -->
+  <node pkg="web_video_server" type="web_video_server" name="web_video_server_camera" output="screen">
+
+    <param name="input_topic" value="/camera/color/image_raw/compressed"/>
+
+    <remap from="appAddress" to="address" />
+    <remap from="portVideo" to="port" />  
+
+    <!-- <param name="width" value="1080"/>
+    <param name="height" value="720"/>
+    <param name="width" value="640"/>
+    <param name="height" value="480"/>
+    <param name="default_transport " value="compressed"/>
+    <param name="type" value="ros_compressed"/>  -->
+  </node>
+    
+  <include ns="bridge1" file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" > 
+     <remap from="portBridge" to="port" />
+     <remap from="appAddress" to="address" />
+  </include>
+
+</launch>

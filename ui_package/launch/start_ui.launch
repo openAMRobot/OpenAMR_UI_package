@@ -1,0 +1,8 @@
+<launch>
+
+    <rosparam command="load" file="$(find ui_package)/param/config.yaml"/>
+    
+    <include file="$(find ui_package)/launch/new_ui_launch.launch"/>
+    <include file="$(find ui_package)/launch/folders_handler.launch"/>
+    <include file="$(find ui_package)/launch/way_points_navigation.launch"/>
+</launch>
