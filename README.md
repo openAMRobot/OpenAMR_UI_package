@@ -350,6 +350,12 @@ Where ip and port are configurable values. You can change them in the **config.y
 
 ![Ip](images/ip_connect.png "Ip_connect")
 
+**Additional launches:**
+
+The ui_package can reload some nodes or even run launches, so in the launchesTemplate folder we placed templates for running navigation and mapping nodes. These launches used to run your navigation and mapping nodes. In the config.yaml file you can change these launches by clyrifying package and launch name. (check config.yaml screen above)
+
+![Launches](images/launch_struct.png "Launch")
+
 **Future development**
 ----------------------
 
