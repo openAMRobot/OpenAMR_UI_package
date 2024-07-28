@@ -334,6 +334,18 @@ Edit the configuration parameters to match your specific needs:
 
 Save your changes to config.yaml.
 
+**Run the UI package:**
+
+To run UI you need firstly run your base robot SW (navigation, localization etc) and then you must run the next launch:
+
+        roslaunch ui_package start_ui.launch
+
+This command runs the user interface at web page in the local network. You can find UI at next address:
+
+        your_ip:your_port
+
+Where ip and port are configurable values. You can change them in the **config.yaml** file.
+
 
 ![Architecture](images/config.png "Config")
 
