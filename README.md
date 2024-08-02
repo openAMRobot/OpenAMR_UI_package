@@ -3,9 +3,9 @@
 
 **OpenAMR\_UI** is an open-source software package designed for the Robot Operating System (ROS) Noetic distribution. It provides a user-friendly interface for the comprehensive control and management of autonomous mobile robots (AMRs) built on platforms like Linorobot or similar systems.
 
-**Key Functionalities:**
+**Key functionalities:**
 
-**Map Creation and Editing:** OpenAMR\_UI facilitates the creation of detailed digital maps representing the operational environment of the AMR. These maps encompass information on walls, obstacles, and other relevant features. The software allows for:
+**Map creation and editing:** OpenAMR\_UI facilitates the creation of detailed digital maps representing the operational environment of the AMR. These maps encompass information on walls, obstacles, and other relevant features. The software allows for:
 
 *   Constructing new maps from scratch
     
@@ -14,14 +14,14 @@
 *   Changing current maps for managing navigation through different floors etc
     
 
-**Route Planning and Management:** OpenAMR\_UI empowers users to define specific routes for the AMR to navigate within the created maps. These routes essentially function as pre-programmed instructions, dictating the AMR's movement and obstacle avoidance strategies. The software allows:
+**Route planning and management:** OpenAMR\_UI empowers users to define specific routes for the AMR to navigate within the created maps. These routes essentially function as pre-programmed instructions, dictating the AMR's movement and obstacle avoidance strategies. The software allows:
 
 *   The creation of multiple routes within a single map, catering to various tasks or objectives
     
 *   Setting a specific task at each waypoint to execute it (in dev)
     
 
-**Robot Control and Monitoring:** With maps and routes established, OpenAMR\_UI offers comprehensive control over the AMR's operation. Users can:
+**Robot control and monitoring:** With maps and routes established, OpenAMR\_UI offers comprehensive control over the AMR's operation. Users can:
 
 *   Initiate and terminate robot movement
     
@@ -36,11 +36,11 @@
 
 **Advantages:**
 
-**User-Centric Design:** OpenAMR\_UI prioritizes usability, even for individuals with limited robotics expertise. The intuitive interface simplifies map creation, route planning, robot control and monitoring statistics.
+**User-centric design:** OpenAMR\_UI prioritizes usability, even for individuals with limited robotics expertise. The intuitive interface simplifies map creation, route planning, robot control and monitoring statistics.
 
-**Open-Source Accessibility:** As an open-source project, OpenAMR\_UI is freely available for use and modification. This grants users the flexibility to adapt it to their specific requirements and project goals.
+**Open-source accessibility:** As an open-source project, OpenAMR\_UI is freely available for use and modification. This grants users the flexibility to adapt it to their specific requirements and project goals.
 
-**ROS Compatibility:** OpenAMR\_UI seamlessly integrates with ROS Noetic, a widely adopted framework for robot development. This compatibility ensures its functionality with a broad spectrum of robots and sensor systems.
+**ROS compatibility:** OpenAMR\_UI seamlessly integrates with ROS Noetic, a widely adopted framework for robot development. This compatibility ensures its functionality with a broad spectrum of robots and sensor systems.
 
 **Architecture description**
 ----------------------------
@@ -49,24 +49,24 @@ OpenAMR\_UI's functionality relies on a robust architecture composed of intercon
 
 ![Architecture](images/arch.png "Architecture")
 
-**Core Nodes:**
+**Core nodes:**
 
 **MapNode:** This node serves as the central hub for map and route management within OpenAMR\_UI. It shoulders several key responsibilities:
 
-*   **Map Management:** Saves and loads map data, ensuring the persistence of the robot's operational environment across sessions.
+*   **Map management:** Saves and loads map data, ensuring the persistence of the robot's operational environment across sessions.
     
-*   **Route Management:**Handles route creation, editing, and storage, allowing you to define various paths for the AMR.
+*   **Route management:**Handles route creation, editing, and storage, allowing you to define various paths for the AMR.
     
-*   **Navigation Control:** Launches the necessary ROS nodes responsible for robot navigation based on the defined routes.
+*   **Navigation control:** Launches the necessary ROS nodes responsible for robot navigation based on the defined routes.
     
-*   **Mapping Control:**MapNode might also trigger the launch of ROS nodes for map creation or updates, enabling you to modify the environment representation.
+*   **Mapping control:**MapNode might also trigger the launch of ROS nodes for map creation or updates, enabling you to modify the environment representation.
     
 
 **WayPointNavNode:** This node acts as the brain of the robot's navigation. It takes center stage when the AMR is actively following a route:
 
-*   **Route Execution:**Once a route is selected, the WayPointNavNode meticulously executes the navigation commands, guiding the robot along the predefined waypoints.
+*   **Route execution:**Once a route is selected, the WayPointNavNode meticulously executes the navigation commands, guiding the robot along the predefined waypoints.
     
-*   **Advanced Functions (Optional):**This node might handle additional functionalities related to different robot’s actuators, mechanisms and sensors.
+*   **Advanced functions (Optional):**This node might handle additional functionalities related to different robot’s actuators, mechanisms and sensors.
     
 
 **UINode:** This node serves as the user interface (UI) and the bridge between the human operator and the robot's inner workings. It comprises two essential elements:
@@ -88,9 +88,9 @@ Our package uses next external packages:
     
     1.  **Localization (amcl package):** Estimating the robot's position within the environment.
         
-    2.  **Path Planning (move\_base package):** Generating collision-free paths for the robot to follow to the goal.
+    2.  **Path planning (move\_base package):** Generating collision-free paths for the robot to follow to the goal.
         
-    3.  **Movement Control (move\_base package):** Sending appropriate velocity commands to the robot's wheels or motors to execute the planned path.
+    3.  **Movement control (move\_base package):** Sending appropriate velocity commands to the robot's wheels or motors to execute the planned path.
         
 4.  **gmapping\_package (linorobot includes it):** This ROS package offers a popular SLAM (Simultaneous Localization and Mapping) solution. It allows the robot to build a map of its environment in real-time while simultaneously keeping track of its location within that map. This map information is often crucial for navigation planning.
     
@@ -106,44 +106,44 @@ Our package uses next external packages:
 
 The Map page serves as your central hub for visualizing and managing your robot's operational environment. Here's a breakdown of what you can expect:
 
-**Visualizing the Robot's World:**
+**Visualizing the robot's World:**
 
-*   **Map Display:** The page features a clear map representation of the environment your robot operates in.
+*   **Map display:** The page features a clear map representation of the environment your robot operates in.
     
-*   **Robot Location:** You'll see a blue triangle indicating the robot's current position on the map, helping you track its movements.
+*   **Robot location:** You'll see a blue triangle indicating the robot's current position on the map, helping you track its movements.
     
-*   **Waypoint Markers:** Red triangles mark the waypoints you've defined for specific routes, providing a visual roadmap for the robot's planned path.
+*   **Waypoint markers:** Red triangles mark the waypoints you've defined for specific routes, providing a visual roadmap for the robot's planned path.
     
-*   **Map Buttons:** Buttons dedicated to zooming in and out and navigating around the map are provided, allowing you to focus on specific areas of the environment. These buttons function independently of ROS topics, ensuring a user-friendly experience. 
-    
-
-**Managing Maps and Groups:**When you click on the buttons, UINode sends the **std\_msgs/String** message to the topic “**/ui\_operation**” and it will be parsed in other nodes of ui\_package
-
-*   **Group Organization:** You can create and delete groups of maps, allowing you to categorize them for easier management (e.g., separate groups for different floors).
-    
-*   **Map Creation and Control:** The page offers tools to create new maps from scratch, rename existing ones, and select the currently active map for the robot.
+*   **Map buttons:** Buttons dedicated to zooming in and out and navigating around the map are provided, allowing you to focus on specific areas of the environment. These buttons function independently of ROS topics, ensuring a user-friendly experience. 
     
 
-**Controlling the Robot (Optional):**
+**Managing maps and groups:**When you click on the buttons, UINode sends the **std\_msgs/String** message to the topic “**/ui\_operation**” and it will be parsed in other nodes of ui\_package
+
+*   **Group organization:** You can create and delete groups of maps, allowing you to categorize them for easier management (e.g., separate groups for different floors).
+    
+*   **Map creation and control:** The page offers tools to create new maps from scratch, rename existing ones, and select the currently active map for the robot.
+    
+
+**Controlling the robot (Optional):**
 
 When you move the joystick, UINode sends the **geometry\_msgs/Twis** message to the topic “**/cmd\_vel**” and it will be parsed in other nodes that release the movement.
 
-*   **Joystick Control:** This feature might be available, enabling you to directly steer the robot using a joystick interface on the map page (if supported by your specific robot platform).
+*   **Joystick control:** This feature might be available, enabling you to directly steer the robot using a joystick interface on the map page (if supported by your specific robot platform).
     
 
-**Top Bar Information:**
+**Top bar information:**
 
-*   **Current Group and Map:** The top of the page typically displays the currently selected group and active map, giving you a clear context for your actions.
+*   **Current group and map:** The top of the page typically displays the currently selected group and active map, giving you a clear context for your actions.
     
 
-**Monitoring System Messages:**
+**Monitoring system messages:**
 
-*   **Messages Section:** A dedicated section on the Map page can display informative messages from various processes involved in robot operation. This section receives and visualize all **std\_msgs/String** messages from topic “**ui\_messages**”
+*   **Messages section:** A dedicated section on the Map page can display informative messages from various processes involved in robot operation. This section receives and visualize all **std\_msgs/String** messages from topic “**ui\_messages**”
     
 
-**Live Video Stream:**
+**Live video stream:**
 
-*   **Video Stream Section:** The Map page might also incorporate a live video stream from the robot's camera (if equipped). This visual aid provides a real-time perspective of the robot's surroundings, complementing the map view and enhancing your situational awareness. You can monitor the robot's progress along its route, identify obstacles in its path, and gain a better understanding of its environment.
+*   **Video stream section:** The Map page might also incorporate a live video stream from the robot's camera (if equipped). This visual aid provides a real-time perspective of the robot's surroundings, complementing the map view and enhancing your situational awareness. You can monitor the robot's progress along its route, identify obstacles in its path, and gain a better understanding of its environment.
     
 
 ### **Route page**
@@ -152,29 +152,29 @@ When you move the joystick, UINode sends the **geometry\_msgs/Twis** message to 
 
 The Route page empowers you to define specific paths for your robot to navigate within the maps you've created. Here's how it helps you chart your AMR's course:
 
-**Route Creation and Management:**
+**Route creation and management:**
 
 When you click on the buttons, UINode sends the **std\_msgs/String** message to the topic “**/ui\_operation**” and it will be parsed in other nodes of ui\_package
 
-*   **Create New Routes:** Design brand new routes by clicking and holding your mouse on the map at desired locations. These points become waypoints, dictating the robot's movement along the path.
+*   **Create new routes:** Design brand new routes by clicking and holding your mouse on the map at desired locations. These points become waypoints, dictating the robot's movement along the path.
     
-*   **Waypoint Details:** As you place each waypoint, the system automatically captures its coordinates and orientation. This ensures the robot follows a precise path.
+*   **Waypoint details:** As you place each waypoint, the system automatically captures its coordinates and orientation. This ensures the robot follows a precise path.
     
-*   **Saving Your Route:** Once you've defined the waypoints for your route, click the "Save" button to solidify your plan. This makes the route available for selection and execution by the robot.
+*   **Saving your route:** Once you've defined the waypoints for your route, click the "Save" button to solidify your plan. This makes the route available for selection and execution by the robot.
     
-*   **Route Management:** The Route page allows you to delete routes you no longer need, rename routes for easy identification, edit existing routes by adding, removing, or repositioning waypoints as required (use the "Clear" button to erase all waypoints from a route, essentially starting over).
+*   **Route management:** The Route page allows you to delete routes you no longer need, rename routes for easy identification, edit existing routes by adding, removing, or repositioning waypoints as required (use the "Clear" button to erase all waypoints from a route, essentially starting over).
     
-*   **Selecting the Active Route:** The Route page enables you to choose which route the robot will follow for its next navigation task. This selected route becomes the active one, guiding the robot's movement.
-    
-
-**Monitoring System Messages (same as at the Map page):**
-
-*   **Messages Section:** A dedicated section on the Map page can display informative messages from various processes involved in robot operation. This section receives and visualize all **std\_msgs/String** messages from topic “**ui\_messages**”
+*   **Selecting the active route:** The Route page enables you to choose which route the robot will follow for its next navigation task. This selected route becomes the active one, guiding the robot's movement.
     
 
-**Top Bar Information:**
+**Monitoring system messages (same as at the Map page):**
 
-*   **Current Group, Map and Route:** The top of the page typically displays the currently selected group and active map, giving you a clear context for your actions. Also you can see the current route that will be used for navigation.
+*   **Messages section:** A dedicated section on the Map page can display informative messages from various processes involved in robot operation. This section receives and visualize all **std\_msgs/String** messages from topic “**ui\_messages**”
+    
+
+**Top bar information:**
+
+*   **Current group, map and route:** The top of the page typically displays the currently selected group and active map, giving you a clear context for your actions. Also you can see the current route that will be used for navigation.
     
 
 ### **Control page**
@@ -183,36 +183,36 @@ When you click on the buttons, UINode sends the **std\_msgs/String** message to 
 
 The Control page serves as your mission control center, allowing you to send navigation commands and guide your robot's movements. When you click on the buttons, UINode sends the **std\_msgs/String** message to the topic “**/ui\_operation**” and it will be parsed in other nodes of ui\_package/ While it doesn't provide direct, physical control like a remote control car, it empowers you to strategically direct the robot's path:
 
-**Route Navigation:**
+**Route navigation:**
 
 *   **Follow/Start:** This button initiates navigation along the currently selected route. The system retrieves all the waypoints defined for the route (from file or database) and sends them one by one to the robot's navigation system. The robot meticulously follows each waypoint in sequence, completing the planned path.
     
 
-**Homeward Bound:**
+**Homeward bound:**
 
 *   **Home:** This button instructs the robot to return to its designated home position. The home point is typically set as the starting location used when building the map (often at coordinates \[0.0, 0.0\]). This functionality is helpful for bringing the robot back to a central location.
     
 
-**Traversing the Route:**
+**Traversing the route:**
 
-*   **Previous Point:** Use this button to direct the robot back to the previous waypoint on its current route. This allows you to retrace its steps if needed. If the robot is already at the first waypoint, it will loop around and navigate to the last waypoint.
+*   **Previous point:** Use this button to direct the robot back to the previous waypoint on its current route. This allows you to retrace its steps if needed. If the robot is already at the first waypoint, it will loop around and navigate to the last waypoint.
     
-*   **Next Point:** This button commands the robot to proceed to the next waypoint on its current route. This is useful for guiding it step-by-step along the planned path. If the robot is at the last waypoint, it will loop around and head to the first waypoint.
+*   **Next point:** This button commands the robot to proceed to the next waypoint on its current route. This is useful for guiding it step-by-step along the planned path. If the robot is at the last waypoint, it will loop around and head to the first waypoint.
     
 
-**Pausing the Journey:**
+**Pausing the journey:**
 
 *   **Stop:** This button brings the robot's movement to a halt, interrupting navigation along a route or manual control. This allows you to pause its operation and regain control.
     
 
-**Custom Functionality (Optional):**
+**Custom functionality (Optional):**
 
-*   **Other Buttons:** The Control page might include additional buttons labeled "functionN\_value." These buttons, when pressed, transmit a specific string ("functionN\_value") to a designated ROS topic "/ui\_operation." This message can be intercepted and handled by custom functions you've programmed, enabling you to extend the robot's capabilities with unique actions.
+*   **Other buttons:** The Control page might include additional buttons labeled "functionN\_value." These buttons, when pressed, transmit a specific string ("functionN\_value") to a designated ROS topic "/ui\_operation." This message can be intercepted and handled by custom functions you've programmed, enabling you to extend the robot's capabilities with unique actions.
     
 
-**Monitoring System Messages (same as at the Map page):**
+**Monitoring system messages (same as at the Map page):**
 
-*   **Messages Section:** A dedicated section on the Map page can display informative messages from various processes involved in robot operation. This section receives and visualize all **std\_msgs/String** messages from topic “**ui\_messages**”
+*   **Messages section:** A dedicated section on the Map page can display informative messages from various processes involved in robot operation. This section receives and visualize all **std\_msgs/String** messages from topic “**ui\_messages**”
     
 
 ### **Info page**
@@ -221,36 +221,36 @@ The Control page serves as your mission control center, allowing you to send nav
 
 The Info page acts as your information hub, providing a comprehensive overview of your robot's status and sensor data. Here's what you can expect:
 
-**Robot Telemetry:**
+**Robot telemetry:**
 
-*   **Real-time Stats:** Gain valuable insights into the robot's current performance through live data displays. This might include:
+*   **Real-time stats:** Gain valuable insights into the robot's current performance through live data displays. This might include:
     
     *   **Velocity:** Monitor the robot's current speed, allowing you to assess its progress and adjust navigation commands if necessary.
         
     *   **Position:** The Info page might visually represent the robot's location on a map, complementing the data and offering a spatial understanding of its whereabouts.
         
 
-**Sensor Readings:**
+**Sensor readings:**
 
 The Info page likely retrieves sensor data by subscribing to the ROS topic **std\_msgs/String "/sensors."** This topic acts as a central channel for sensor readings from various sources on the robot. The page might utilize circular bars to represent sensor values visually. These bars typically range from 0 to 100% (%), providing an easy-to-understand gauge for battery levels, temperatures, or other sensor data that can be interpreted as percentages.
 
-*   **Sensor Values:** The page can display data from various sensors equipped on your robot. These readings can provide essential information about the robot's environment and its internal state. The specific sensors and data displayed will depend on your robot's configuration. Here are some examples:
+*   **Sensor values:** The page can display data from various sensors equipped on your robot. These readings can provide essential information about the robot's environment and its internal state. The specific sensors and data displayed will depend on your robot's configuration. Here are some examples:
     
-    *   **Battery Levels:** Monitor the battery levels of your robot (e.g., "batt1\_value" or "batt2\_value" for multiple batteries), ensuring timely recharging to avoid disruptions.
+    *   **Battery levels:** Monitor the battery levels of your robot (e.g., "batt1\_value" or "batt2\_value" for multiple batteries), ensuring timely recharging to avoid disruptions.
         
     *   **Temperature:** Keep an eye on temperature readings (e.g., "temp1\_value" or "temp2\_value" for multiple sensors) to identify any potential overheating issues.
         
-    *   **Other Sensors:** The page might display data from additional sensors labeled "sensN\_value" (where N = 3, 4, 5, 6). These sensors could include things like range sensors, bump sensors, or any custom sensors you've integrated.
+    *   **Other sensors:** The page might display data from additional sensors labeled "sensN\_value" (where N = 3, 4, 5, 6). These sensors could include things like range sensors, bump sensors, or any custom sensors you've integrated.
         
 
-**Live Video Stream (same as at the Map page):**
+**Live video stream (same as at the Map page):**
 
-*   **Camera View:** If your robot is equipped with a camera, the Info page might integrate a live video stream. This visual aid offers a real-time perspective of the robot's surroundings, complementing the sensor data and providing valuable situational awareness. You can observe the robot's environment as it navigates, identify potential obstacles, and gain a better understanding of its interactions with the world around it.
+*   **Camera view:** If your robot is equipped with a camera, the Info page might integrate a live video stream. This visual aid offers a real-time perspective of the robot's surroundings, complementing the sensor data and providing valuable situational awareness. You can observe the robot's environment as it navigates, identify potential obstacles, and gain a better understanding of its interactions with the world around it.
     
 
-**Monitoring System Messages (same as at the Map page):**
+**Monitoring system messages (same as at the Map page):**
 
-*   **Messages Section:** A dedicated section on the Map page can display informative messages from various processes involved in robot operation. This section receives and visualize all **std\_msgs/String** messages from topic “**ui\_messages**”
+*   **Messages section:** A dedicated section on the Map page can display informative messages from various processes involved in robot operation. This section receives and visualize all **std\_msgs/String** messages from topic “**ui\_messages**”
     
 
 **How to install**
@@ -258,11 +258,11 @@ The Info page likely retrieves sensor data by subscribing to the ROS topic **std
 
 **Needed dependencies**
 
-**Essential ROS Packages for Robot Navigation and Mapping:**
+**Essential ROS packages for robot navigation and mapping:**
 
 Your autonomous mobile robot (AMR) project likely relies on a foundation of ROS (Robot Operating System) packages to handle vital tasks like mapping, localization, and navigation. This guide will ensure you have the necessary software components in place before exploring the OpenAMR\_UI package.
 
-**Required ROS Packages:**
+**Required ROS packages:**
 
 *   move\_base
     
@@ -359,19 +359,19 @@ The ui_package can reload some nodes or even run launches, so in the launchesTem
 **Future development**
 ----------------------
 
-### **Map Functionality**
+### **Map functionality**
 
 **Enhance map editing capabilities:** Implement pixel editing and zone drawing tools.**Improve map navigation:** Enable map rotation, dragging and zooming for better user experience (by mouse).**Automate map creation:** Develop automatic map building features, including search uncovered zones functionality.**Visualize map elements:** Allow users to customize the appearance of robot markers and points.
 
-### **Route Planning and Management**
+### **Route planning and management**
 
 **Expand route options:** Support curve route drawing and automatic route generation between specified points.**Differentiate point types:** Introduce various point types with customizable properties and execution behaviors.**Optimize route execution:** Allow users to define specific actions for each point.**Enhance route manipulation:** Enable dragging and editing of points on the route.
 
-### **System Control and Configuration**
+### **System control and configuration**
 
 **Increase control flexibility:** Provide camera control options if applicable.**Improve naming conventions:** Allow users to rename functions and parameters for better organization. (in config)
 
-### **Sensor Management**
+### **Sensor management**
 
 **Enhance sensor customization:** Enable renaming, unit specification, and setting minimum/maximum sensor values. (in config)
 
