@@ -217,7 +217,7 @@ The Control page serves as your mission control center, allowing you to send nav
 
 ### **Info page**
 
-![Architecture](images/info.png "Info")
+![Architecture](images/info_warehouse.png "Info")
 
 The Info page acts as your information hub, providing a comprehensive overview of your robot's status and sensor data. Here's what you can expect:
 
