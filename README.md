@@ -47,7 +47,7 @@
 
 OpenAMR\_UI's functionality relies on a robust architecture composed of interconnected ROS nodes, standard packages, and communication libraries. Let's delve deeper into each of these components
 
-![Architecture](images/arch.png "Architecture")
+![Architecture](images/UI_architecture.jpg "Architecture")
 
 **Core nodes:**
 
