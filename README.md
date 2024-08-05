@@ -1,7 +1,7 @@
 **User interface**
 ----------------------------
 
-**OpenAMR\_UI** OpenAMR_UI is an open-source user interface designed for the intuitive control and management of autonomous mobile robots (AMRs)- its primary focus is on providing a user-friendly experience for effective AMR management. It offers a simple and understandable interface that allows users to monitor telemetry, set up tasks, configure waypoints, and define paths. Built with ease of exploitation, implementation, editing, and redesigning in mind, OpenAMR_UI is optimized for seamless integration with platforms like Linorobot and similar systems and well-suited for use with the Robot Operating System (ROS) Noetic distribution.
+**OpenAMR\_UI** is an open-source user interface designed for the intuitive control and management of autonomous mobile robots (AMRs)- its primary focus is on providing a user-friendly experience for effective AMR management. It offers a simple and understandable interface that allows users to monitor telemetry, set up tasks, configure waypoints, and define paths. Built with ease of exploitation, implementation, editing, and redesigning in mind, OpenAMR_UI is optimized for seamless integration with platforms like Linorobot and similar systems and well-suited for use with the Robot Operating System (ROS) Noetic distribution.
 
 **Key functionalities:**
 
