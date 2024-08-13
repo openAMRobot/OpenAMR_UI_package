@@ -18,7 +18,7 @@
 
 *   The creation of multiple routes within a single map, catering to various tasks or objectives
     
-*   Setting a specific task at each waypoint to execute it (in dev)
+*   Setting a specific task at each waypoint to execute it (in development)
     
 
 **Robot control and monitoring:** with maps and routes established, OpenAMR\_UI offers comprehensive control over the AMR's operation. Users can:
@@ -59,14 +59,14 @@ OpenAMR\_UI's functionality relies on a robust architecture composed of intercon
     
 *   **Navigation control:** launches the necessary ROS nodes responsible for robot navigation based on the defined routes.
     
-*   **Mapping control:** MapNode might also trigger the launch of ROS nodes for map creation or updates, enabling you to modify the environment representation.
+*   **Mapping control:** MapNode can launch ROS nodes for map creation or updates, enabling you to modify the environment representation.
     
 
 **WayPointNavNode:** this node acts as the brain of the robot's navigation. It takes center stage when the AMR is actively following a route:
 
 *   **Route execution:** once a route is selected, the WayPointNavNode meticulously executes the navigation commands, guiding the robot along the predefined waypoints.
     
-*   **Advanced functions (Optional):** this node might handle additional functionalities related to different robot’s actuators, mechanisms and sensors.
+*   **Advanced functions (Optional):** this node can run additional functionalities related to different robot’s actuators, mechanisms and sensors.
     
 
 **UINode:** this node serves as the user interface (UI) and the bridge between the human operator and the robot's inner workings. It comprises two essential elements:
@@ -127,8 +127,6 @@ The Map page serves as your central hub for visualizing and managing your robot'
 **Controlling the robot with joystick (Optional):**
 
 When you move the joystick, UINode sends the **geometry\_msgs/Twis** message to the topic “**/cmd\_vel**” and it will be parsed in other nodes that release the movement.
-
-*   **Joystick control:** this feature might be available, enabling you to directly steer the robot using a joystick interface on the map page (if supported by your specific robot platform).
     
 
 **Top bar information:**
@@ -143,7 +141,7 @@ When you move the joystick, UINode sends the **geometry\_msgs/Twis** message to 
 
 **Live video stream:**
 
-*   **Video stream section:** the Map page might also incorporate a live video stream from the robot's camera (if equipped). This visual aid provides a real-time perspective of the robot's surroundings, complementing the map view and enhancing your situational awareness. You can monitor the robot's progress along its route, identify obstacles in its path, and gain a better understanding of its environment.
+*   **Video stream section:** the Map page includes a live video stream from the robot's camera (if equipped). This visual aid provides a real-time perspective of the robot's surroundings, complementing the map view and enhancing your situational awareness. You can monitor the robot's progress along its route, identify obstacles in its path, and gain a better understanding of its environment.
     
 
 ### **Route page**
@@ -188,7 +186,7 @@ The Control page serves as your mission control center, allowing you to send nav
 *   **Follow/Start:** This button initiates navigation along the currently selected route. The system retrieves all the waypoints defined for the route (from file or database) and sends them one by one to the robot's navigation system. The robot meticulously follows each waypoint in sequence, completing the planned path.
     
 
-**Homeward bound:**
+**Returning to home position:**
 
 *   **Home:** this button instructs the robot to return to its designated home position. The home point is typically set as the starting location used when building the map (often at coordinates \[0.0, 0.0\]). This functionality is helpful for bringing the robot back to a central location. In the future, we may use such a point, for example, to place a charging station there.
     
@@ -202,12 +200,12 @@ The Control page serves as your mission control center, allowing you to send nav
 
 **Pausing the journey:**
 
-*   **Stop:** this button brings the robot's movement to a halt, interrupting navigation along a route or manual control. This allows you to pause its operation and regain control.
+*   **Stop:** this button brings the robot's movement to a halt, interrupting navigation along a route or manual control. This allows you to stop its operation and regain control.
     
 
 **Custom functionality (Optional):**
 
-*   **Other buttons:** the Control page might include additional buttons labeled "functionN\_value." These buttons, when pressed, transmit a specific string ("functionN\_value") to a designated ROS topic "/ui\_operation." This message can be intercepted and handled by custom functions you've programmed, enabling you to extend the robot's capabilities with unique actions.
+*   **Other buttons:** the Control page includes additional buttons labeled "functionN\_value." These buttons, when pressed, transmit a specific string ("functionN\_value") to a designated ROS topic "/ui\_operation." This message can be intercepted and handled by custom functions you've programmed, enabling you to extend the robot's capabilities with unique actions.
     
 
 **Monitoring system messages (same as at the Map page):**
@@ -223,16 +221,16 @@ The Info page acts as your information hub, providing a comprehensive overview o
 
 **Robot telemetry:**
 
-*   **Real-time stats:** gain valuable insights into the robot's current performance through live data displays. This might include:
+*   **Real-time stats:** gain valuable insights into the robot's current performance through live data displays. This includes:
     
     *   **Velocity:** monitor the robot's current speed, allowing you to assess its progress and adjust navigation commands if necessary.
         
-    *   **Position:** the Info page might visually represent the robot's location on a map, complementing the data and offering a spatial understanding of its whereabouts.
+    *   **Position:** the Info page has visually representation of robot's location on a map, complementing the data and offering a spatial understanding of its whereabouts.
         
 
 **Sensor readings:**
 
-The Info page likely retrieves sensor data by subscribing to the ROS topic **std\_msgs/String "/sensors."** This topic acts as a central channel for sensor readings from various sources on the robot. The page might utilize circular bars to represent sensor values visually. These bars typically range from 0 to 100%, providing an easy-to-understand gauge for battery levels, temperatures, or other sensor data that can be interpreted as percentages.
+The Info page likely retrieves sensor data by subscribing to the ROS topic **std\_msgs/String "/sensors."** This topic acts as a central channel for sensor readings from various sources on the robot. The page utilizes circular bars to represent sensor values visually. These bars typically range from 0 to 100%, providing an easy-to-understand gauge for battery levels, temperatures, or other sensor data that can be interpreted as percentages.
 
 *   **Sensor values:** the page can display data from various sensors equipped on your robot. These readings can provide essential information about the robot's environment and its internal state. The specific sensors and data displayed will depend on your robot's configuration. Here are some examples:
     
@@ -240,12 +238,12 @@ The Info page likely retrieves sensor data by subscribing to the ROS topic **std
         
     *   **Temperature:** keep an eye on temperature readings (e.g., "temp1\_value" or "temp2\_value" for multiple sensors) to identify any potential overheating issues.
         
-    *   **Other sensors:** the page might display data from additional sensors labeled "sensN\_value" (where N = 3, 4, 5, 6). These sensors could include things like range sensors, bump sensors, or any custom sensors you've integrated.
+    *   **Other sensors:** the page displays data from additional sensors labeled "sensN\_value" (where N = 3, 4, 5, 6). These sensors could include things like range sensors, bump sensors, or any custom sensors you've integrated.
         
 
 **Live video stream (same as at the Map page):**
 
-*   **Camera view:** if your robot is equipped with a camera, the Info page might integrate a live video stream. This visual aid offers a real-time perspective of the robot's surroundings, complementing the sensor data and providing valuable situational awareness. You can observe the robot's environment as it navigates, identify potential obstacles, and gain a better understanding of its interactions with the world around it.
+*   **Camera view:** if your robot is equipped with a camera, the Info page integrates a live video stream. This visual aid offers a real-time perspective of the robot's surroundings, complementing the sensor data and providing valuable situational awareness. You can observe the robot's environment as it navigates, identify potential obstacles, and gain a better understanding of its interactions with the world around it.
     
 
 **Monitoring system messages (same as at the Map page):**
@@ -373,10 +371,10 @@ The ui_package can reload some nodes or even run launches, so in the launchesTem
 ### **System control and configuration**
 
 **Increase control flexibility:** provides camera control options if applicable.
-**Improve naming conventions:** allows users to rename functions and parameters for better organization. (in config)
+**Improve naming conventions:** allows users to rename functions and parameters for better organization. (in config file)
 
 ### **Sensor management**
 
-**Enhance sensor customization:** enables renaming, unit specification, and setting minimum/maximum sensor values. (in config)
+**Enhance sensor customization:** enables renaming, unit specification, and setting minimum/maximum sensor values. (in config file)
 
 Addressing these limitations will offer a more comprehensive and user-friendly experience for map creation, route planning, system control, and sensor management.
