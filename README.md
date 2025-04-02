@@ -359,7 +359,7 @@ The ui_package can reload some nodes or even run launches, so in the launchesTem
 
 ### **Map functionality**
 
-**Enhance map editing capabilities:** implements pixel editing and zone drawing tools.**Improve map navigation:** Enable map rotation, dragging and zooming for better user experience (by mouse).**Automate map creation:** Develop automatic map building features, including search uncovered zones functionality.**Visualize map elements:** Allow users to customize the appearance of robot markers and points.
+**Enhance map editing capabilities:** implements pixel editing and zone drawing tools. **Improve map navigation:** Enable map rotation, dragging and zooming for better user experience (by mouse). **Automate map creation:** Develop automatic map building features, including search uncovered zones functionality. **Visualize map elements:** Allow users to customize the appearance of robot markers and points.
 
 ### **Route planning and management**
 
