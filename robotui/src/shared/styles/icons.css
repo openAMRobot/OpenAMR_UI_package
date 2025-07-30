@@ -1,0 +1,117 @@
+.iconArrow {
+  background-color: #22b7fc;
+  min-width: 25px;
+  height: 28px;
+  -webkit-mask-image: url("../../assets/icons/icon-map-arrow.svg");
+  mask-image: url("../../assets/icons/icon-map-arrow.svg");
+}
+
+.iconPlus {
+  background-color: #22b7fc;
+  height: 30px;
+  min-width: 30px;
+  -webkit-mask-image: url("../../assets/icons/icon-plus.svg");
+  mask-image: url("../../assets/icons/icon-plus.svg");
+}
+
+.iconMinus {
+  background-color: #22b7fc;
+  min-width: 30px;
+  height: 4px;
+  -webkit-mask-image: url("../../assets/icons/icon-minus.svg");
+  mask-image: url("../../assets/icons/icon-minus.svg");
+}
+
+.iconSave {
+  background-color: #22b7fc;
+  min-width: 32px;
+  height: 32px;
+  -webkit-mask-image: url("../../assets/icons/icon-save.svg");
+  mask-image: url("../../assets/icons/icon-save.svg");
+}
+
+.iconMap {
+  background-color: #22b7fc;
+  min-width: 30px;
+  height: 30px;
+  -webkit-mask-image: url("../../assets/icons/icon-map.svg");
+  mask-image: url("../../assets/icons/icon-map.svg");
+}
+
+.iconGroup {
+  background-color: #22b7fc;
+  min-width: 30px;
+  height: 30px;
+  -webkit-mask-image: url("../../assets/icons/icon-group.svg");
+  mask-image: url("../../assets/icons/icon-group.svg");
+}
+
+.iconHome {
+  background-color: #22b7fc;
+  min-width: 30px;
+  height: 30px;
+  -webkit-mask-image: url("../../assets/icons/icon-home.svg");
+  mask-image: url("../../assets/icons/icon-home.svg");
+}
+
+.iconCharge {
+  background-color: #22b7fc;
+  min-width: 30px;
+  height: 30px;
+  -webkit-mask-image: url("../../assets/icons/icon-charge.svg");
+  mask-image: url("../../assets/icons/icon-charge.svg");
+}
+
+.iconPoint {
+  background-color: #22b7fc;
+  min-width: 30px;
+  height: 30px;
+  -webkit-mask-image: url("../../assets/icons/icon-point.svg");
+  mask-image: url("../../assets/icons/icon-point.svg");
+}
+
+.iconTrash {
+  background-color: #22b7fc;
+  min-width: 30px;
+  height: 30px;
+  -webkit-mask-image: url("../../assets/icons/icon-trash.svg");
+  mask-image: url("../../assets/icons/icon-trash.svg");
+}
+
+.iconInfo {
+  background-color: #22b7fc;
+  min-width: 32px;
+  height: 32px;
+  -webkit-mask-image: url("../../assets/icons/icon-info.svg");
+  mask-image: url("../../assets/icons/icon-info.svg");
+}
+
+.mapButton:active .iconArrow,
+.mapButton:active .iconPlus,
+.mapButton:active .iconMinus,
+.functionalButton:active .iconPlus,
+.functionalButton:active .iconGroup,
+.functionalButton:active .iconMap,
+.functionalButton:active .iconSave,
+.functionalButton:active .iconCharge,
+.functionalButton:active .iconHome,
+.functionalButton:active .iconInfo,
+.functionalButton:active .iconPoint,
+.functionalButton:active .iconTrash {
+  background-color: white;
+}
+
+.mapButton.disabled:active .iconArrow,
+.mapButton.disabled:active .iconPlus,
+.mapButton.disabled:active .iconMinus,
+.functionalButton.disabled:active .iconPlus,
+.functionalButton.disabled:active .iconGroup,
+.functionalButton.disabled:active .iconMap,
+.functionalButton.disabled:active .iconSave,
+.functionalButton.disabled:active .iconCharge,
+.functionalButton.disabled:active .iconHome,
+.functionalButton.disabled:active .iconInfo,
+.functionalButton.disabled:active .iconPoint,
+.functionalButton.disabled:active .iconTrash {
+  background-color: #22b7fc;
+}
