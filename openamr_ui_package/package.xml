@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>openamr_ui_package</name>
+  <version>0.0.0</version>
+  <description>UI for AMRs</description>
+  <maintainer email="tobbalya@gmail.com">darkadius</maintainer>
+  <license>MIT</license>
+
+  <depend>rclpy</depend>
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
+  <depend>rosidl_default_generators</depend>
+  <depend>geometry_msgs</depend>
+
+  <buildtool_depend>rosidl_default_generators</buildtool_depend>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <exec_depend>ros2launch</exec_depend>
+  <exec_depend>rosidl_default_runtime</exec_depend>
+  <exec_depend>openamr_ui_msgs</exec_depend>
+
+  <member_of_group>rosidl_interface_packages</member_of_group>
+
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

@@ -1,9 +1,0 @@
-free_thresh: 0.196
-image: /home/ubuntu/catkin_ws/src/ui_package/maps/Group1/Map1.pgm
-negate: 0
-occupied_thresh: 0.65
-origin:
-- -13.8
-- -12.2
-- 0.0
-resolution: 0.05

@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<launch>
-    <!--Desinfection handler -->
-    <node pkg="ui_package" name="folders_handler" type="folders_handler.py" output="screen" />
-</launch>
